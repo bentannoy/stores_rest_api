@@ -20,6 +20,8 @@ class Store(Resource):
         except:
             return {'message': 'An error occurred inserting the item.'}, 500
 
+        return store.json(), 201
+
     def delete(self, name):
         if not StoreModel.find_by_name(name):
             return {'message': 'A store with name "{}" does not exist.'.format(name)}, 400
